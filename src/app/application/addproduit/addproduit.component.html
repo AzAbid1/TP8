@@ -1,0 +1,36 @@
+<h3>Ajout d'un produit</h3>
+<form>
+    <div>
+        <label> Référence du produit </label>
+        <input class="form-control" type="number" name="reference">
+    </div>
+    <div>
+        <label>Libellé</label>
+        <input class="form-control" type="text" name="lib">
+    </div>
+
+    <div>
+        <label> Made In </label>
+        <label>
+            <input type="radio" name="madeIn" value="Tunisie">Tunisie
+        </label>
+        <label>
+            <input type="radio" name="madeIn" value="Autre">Autre
+        </label>
+    </div>
+    <div>
+        <label>Catégorie</label>
+        <select class="form-select" name="categ">
+            <option *ngFor="let c of lesCategories" [value]="c"> {{c}}</option>
+        </select>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" name="nouv"> Nouveau
+        </label>
+    </div>
+
+    <input type="submit" value="Ajouter">
+    <input type="button" value="Vider">
+
+</form>
