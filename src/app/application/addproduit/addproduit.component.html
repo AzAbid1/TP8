@@ -1,32 +1,32 @@
 <h3>Ajout d'un produit</h3>
-<form>
+<form [formGroup]="productForm" (ngSubmit)="onSubmitForm()">
     <div>
         <label> Référence du produit </label>
-        <input class="form-control" type="number" name="reference">
+        <input class="form-control" type="number" formControlName="ref">
     </div>
     <div>
         <label>Libellé</label>
-        <input class="form-control" type="text" name="lib">
+        <input class="form-control" type="text" formControlName="libelle">
     </div>
 
     <div>
         <label> Made In </label>
         <label>
-            <input type="radio" name="madeIn" value="Tunisie">Tunisie
+            <input type="radio" formControlName="made" value="Tunisie">Tunisie
         </label>
         <label>
-            <input type="radio" name="madeIn" value="Autre">Autre
+            <input type="radio" formControlName="made" value="Autre">Autre
         </label>
     </div>
     <div>
         <label>Catégorie</label>
-        <select class="form-select" name="categ">
+        <select class="form-select" formControlName="categorie">
             <option *ngFor="let c of lesCategories" [value]="c"> {{c}}</option>
         </select>
     </div>
     <div>
         <label>
-            <input type="checkbox" name="nouv"> Nouveau
+            <input type="checkbox" formControlName="nouveau"> Nouveau
         </label>
     </div>
 

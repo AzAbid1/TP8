@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ListproduitsComponent } from './application/listproduits/listproduits.component';
 import { AddproduitComponent } from './application/addproduit/addproduit.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { AddproduitComponent } from './application/addproduit/addproduit.compone
     AddproduitComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
