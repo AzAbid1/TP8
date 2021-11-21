@@ -3,10 +3,17 @@
     <div>
         <label> Référence du produit </label>
         <input class="form-control" type="number" formControlName="reference">
+        <div class="alert alert-danger" *ngIf="refProduct && refProduct.invalid &&
+        refProduct.dirty">
+            La référence doit être un nombre
+        </div>
     </div>
     <div>
         <label>Libellé</label>
         <input class="form-control" type="text" formControlName="libelle">
+        <div *ngIf="isValidPattern()" class="alert alert-warning">
+            Le libelle doit commencer par une majuscule suivie d'au moins 1 caractère
+        </div>
     </div>
 
     <div>
@@ -30,7 +37,7 @@
         </label>
     </div>
 
-    <input type="submit" value="Ajouter">
+    <input type="submit" value="Ajouter" [disabled]="productForm.invalid">
     <input type="button" (click)="onReset()"value="Vider">
 
 </form>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProduitService } from 'src/app/services/produit.service';
 
 @Component({
@@ -39,13 +39,24 @@ export class AddproduitComponent implements OnInit {
           nouveau : false
         });
        }
+
+       public get refProduct(){ 
+        return this.productForm.get('reference'); 
+      }
+
+      isValidPattern():boolean{
+        return this.productForm.controls['libelle'].errors?.pattern &&
+        this.productForm.controls['libelle'].invalid &&
+        this.productForm.controls['libelle'].dirty;
+        }
+       
       
   constructor(private fb:FormBuilder, private produitService:ProduitService) { }
 
   ngOnInit(): void {
     this.productForm = this.fb.group({
-      reference:[0],
-      libelle: [''],
+      reference:[0, Validators.required],
+      libelle:['', [Validators.required, Validators.pattern('[A-Z][a-zA-Z]+')]],
       made: ['Tunisie'],
       categorie: ['Accessoires'],
       nouveau : false
