@@ -2,7 +2,7 @@
 <form [formGroup]="productForm" (ngSubmit)="onSubmitForm()">
     <div>
         <label> Référence du produit </label>
-        <input class="form-control" type="number" formControlName="ref">
+        <input class="form-control" type="number" formControlName="reference">
     </div>
     <div>
         <label>Libellé</label>
@@ -31,6 +31,6 @@
     </div>
 
     <input type="submit" value="Ajouter">
-    <input type="button" value="Vider">
+    <input type="button" (click)="onReset()"value="Vider">
 
 </form>

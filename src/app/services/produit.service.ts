@@ -13,5 +13,10 @@ export class ProduitService {
   public getProduits(){
     return this.lesProduits;
   }
+
+  public addProduit(pdt:Produit){
+    let p1 = Object.assign({},pdt);
+    this.lesProduits.push(p1);
+  }
   constructor() { }
 }
